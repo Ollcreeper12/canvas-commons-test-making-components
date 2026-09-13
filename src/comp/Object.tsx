@@ -10,7 +10,7 @@ import {
 } from "@canvas-commons/core";
 
 export interface ObjectProperties extends RectProps {
-    text: SignalValue<string>;
+    text?: SignalValue<string>;
     icon?: string;
     color?: string;
     textColor?: string;
@@ -22,6 +22,7 @@ export interface ObjectProperties extends RectProps {
 
 export class Object extends Rect {
     public readonly text: SimpleSignal<string>;
+
     private textRef = createRef<Txt>()
     private iconRef = createRef<Icon>()
     private iconSize: SimpleSignal<number>;
@@ -54,7 +55,7 @@ export class Object extends Rect {
         });
 
         this.iconSize = createSignal(props.iconSize);
-        this.text = createSignal(props.text)
+        this.text = createSignal(props.text ?? "_")
 
         this.add(
             <>

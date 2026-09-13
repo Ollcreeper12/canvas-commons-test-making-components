@@ -2,8 +2,20 @@
   "version": 0,
   "timeEvents": [
     {
+      "name": "vkh",
+      "targetTime": 0.6749985022370629
+    },
+    {
+      "name": "helpers",
+      "targetTime": 6.355966376446258
+    },
+    {
+      "name": "glfw",
+      "targetTime": 12.22769469693984
+    },
+    {
       "name": "end",
-      "targetTime": 19.315684172918893
+      "targetTime": 17.45367974425567
     }
   ],
   "seed": 2155420198
