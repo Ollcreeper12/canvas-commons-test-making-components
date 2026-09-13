@@ -24,7 +24,7 @@
       "name": "@canvas-commons/ffmpeg",
       "options": {
         "fastStart": false,
-        "includeAudio": true,
+        "includeAudio": false,
         "audioSampleRate": 48000
       }
     }

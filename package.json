@@ -8,8 +8,8 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@canvas-commons/core": "^0.3.1",
     "@canvas-commons/2d": "^0.3.1",
+    "@canvas-commons/core": "^0.3.1",
     "@canvas-commons/ffmpeg": "^0.3.1"
   },
   "devDependencies": {

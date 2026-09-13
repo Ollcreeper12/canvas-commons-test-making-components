@@ -10,7 +10,6 @@ export default makeScene2D(function* (view) {
     const obj1 = createRef<Object>();
     const obj2 = createRef<Object>();
     const obj3 = createRef<Object>();
-    const obj4 = createRef<Object>();
 
     view.add(
         <>
@@ -22,6 +21,7 @@ export default makeScene2D(function* (view) {
                 radius={20}
                 alignItems={"stretch"}
                 direction={"column"}
+                scale={2}
             >
                 <Object
                     ref={obj1}
@@ -35,17 +35,10 @@ export default makeScene2D(function* (view) {
                     opacity={0}
                     fontFamily={"JetBrains Mono"}
                     height={0}
-                    icon={"mdi:folder-outline"}
+                    icon={"mdi:folder-multiple-outline"}
                 />
                 <Object
                     ref={obj3}
-                    opacity={0}
-                    fontFamily={"JetBrains Mono"}
-                    height={0}
-                    icon={"mdi:folder-outline"}
-                />
-                <Object
-                    ref={obj4}
                     opacity={0}
                     fontFamily={"JetBrains Mono"}
                     height={0}
@@ -58,8 +51,8 @@ export default makeScene2D(function* (view) {
     yield* all(
         obj1().paddingOverride(0, 0),
         obj2().paddingOverride(0, 0),
+        obj2().paddingOverride(0, 0),
         obj3().paddingOverride(0, 0),
-        obj4().paddingOverride(0, 0),
 
         rect().padding(0,0)
     )
@@ -72,20 +65,13 @@ export default makeScene2D(function* (view) {
         obj1().textLegacyAnimate("vk-headers", 1),
         obj1().opacity(1, 0),
         obj1().animateFromFlat(),
-        obj1().height(0,0).to(obj1().getTargetHeight(), 1),
     );
 
     yield* waitUntil("helpers")
     yield* all(
-        obj2().textLegacyAnimate("vma", 1),
+        obj2().textLegacyAnimate("vma/volk", 1),
         obj2().opacity(1, 0),
         obj2().animateFromFlat(),
-        obj2().height(0,0).to(obj2().getTargetHeight(), 1),
-
-        obj3().textLegacyAnimate("volk", 1),
-        obj3().opacity(1, 0),
-        obj3().animateFromFlat(),
-        obj3().height(0,0).to(obj3().getTargetHeight(), 1),
 
         rect().gap(20,1),
     );
@@ -93,10 +79,10 @@ export default makeScene2D(function* (view) {
 
     yield* waitUntil("glfw")
     yield* all(
-        obj4().textLegacyAnimate("glfw", 1),
-        obj4().opacity(1, 0),
-        obj4().animateFromFlat(),
-        obj4().height(0,0).to(obj4().getTargetHeight(), 1),
+        obj3().textLegacyAnimate("glfw", 1),
+        obj3().opacity(1, 0),
+        obj3().animateFromFlat(),
+        obj3().height(0,0).to(obj3().getTargetHeight(), 1),
     );
 
     yield* waitUntil("end");
