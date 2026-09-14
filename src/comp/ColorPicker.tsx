@@ -1,5 +1,5 @@
 import {Layout, LayoutProps, Rect} from '@canvas-commons/2d';
-import {Color, createRef, createSignal, SignalValue, SimpleSignal} from "@canvas-commons/core";
+import {Color, createSignal, SignalValue, SimpleSignal} from "@canvas-commons/core";
 import {Controller} from './ColorPicker/Controller';
 
 export interface ObjectProperties extends LayoutProps {
@@ -44,6 +44,7 @@ export class ColorPicker extends Layout {
                         0,
                         0
                     ]}
+                    position={() => [0, -this.radius() * 2]}
                     alignItems={"center"}
                     padding={10}
                     smoothCorners
@@ -63,12 +64,8 @@ export class ColorPicker extends Layout {
                     padding={10}
                     gap={0}
                     fill={'#282828'}
-                    radius={() => [
-                        0,
-                        0,
-                        this.radius(),
-                        this.radius()
-                    ]}
+                    radius={() => this.radius()}
+                    position={() => [0, this.previewHeight() / 2]}
 
                     shadowColor={'#212121'}
                     shadowOffsetY={5}
