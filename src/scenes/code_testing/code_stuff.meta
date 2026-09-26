@@ -1,0 +1,30 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "addImport",
+      "targetTime": 0
+    },
+    {
+      "name": "classIt",
+      "targetTime": 2.150553769203287
+    },
+    {
+      "name": "addMatrix",
+      "targetTime": 3.957127545551983
+    },
+    {
+      "name": "addItemsToMatrix",
+      "targetTime": 6.048374419435513
+    },
+    {
+      "name": "writeToScreen",
+      "targetTime": 8.12775991425509
+    },
+    {
+      "name": "end",
+      "targetTime": 9.744551625580565
+    }
+  ],
+  "seed": 4131904449
+}

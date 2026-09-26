@@ -1,13 +1,13 @@
-import {Circle, Line, makeScene2D, Rect, Code} from '@canvas-commons/2d';
-import {all, createRef, Direction, slideTransition, waitUntil} from '@canvas-commons/core';
-import {Atom} from "../../comp/atom";
+import {Code, makeScene2D, Txt, Rect} from '@canvas-commons/2d';
+import {createRef, Direction, slideTransition, waitUntil} from '@canvas-commons/core';
+import {WIPText} from "../../comp/WIPText";
 
 export default makeScene2D(function* (view) {
 
 
     const code = createRef<Code>()
 
-    view.add (
+    view.add(
         <>
             <Code
                 ref={code}
@@ -27,12 +27,13 @@ class animation(Scene):
         self.wait(3)
 `}
             />
+            <WIPText />
         </>
     )
 
 
     yield* slideTransition(Direction.Top, 1);
-    
+
     yield* waitUntil("end");
 
 });

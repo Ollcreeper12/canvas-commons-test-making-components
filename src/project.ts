@@ -17,8 +17,9 @@ Code.defaultHighlighter = new LezerHighlighter(
 
 export default makeProject({
   scenes: [
-      code_stuff,
-      view_matrix,
-      code_stuff_with_transform,
+      // code_stuff,
+      // view_matrix,
+      // code_stuff_with_transform,
+      testing
   ],
 });

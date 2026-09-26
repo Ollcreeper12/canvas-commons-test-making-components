@@ -1,21 +1,21 @@
 import {Circle, Line, makeScene2D, Rect} from '@canvas-commons/2d';
 import {all, createRef, waitUntil} from '@canvas-commons/core';
 import {Atom} from "../comp/atom";
+import {Object} from "../comp/Object";
 
 export default makeScene2D(function* (view) {
 
-    const rect = createRef<Rect>();
+    const obj = createRef<Object>()
 
     view.add(
-        <>
-            <Rect
-                ref={rect}
-                width={100}
-                height={100}
-            />
-        </>
-    );
+        <Object
+            ref={obj}
+            text={"SomeNode"}
+        />
+    )
 
-    yield* rect().animate("fadeIn")
+    yield* obj().text("Hewo", 1)
+
+
 
 });
