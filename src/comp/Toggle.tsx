@@ -65,7 +65,9 @@ export class Toggle extends Node {
         );
     }
 
-    public *toggle(duration: number) {
+    public *toggle(time?: number) {
+        let duration = time ?? 0.6
+
         yield* all(
             tween(duration, value => {
                 const oldColor = this.isOn ? this.accent() : this.offColor;

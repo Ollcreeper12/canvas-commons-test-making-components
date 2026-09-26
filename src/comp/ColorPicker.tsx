@@ -1,10 +1,10 @@
-import {Layout, LayoutProps, Rect} from '@canvas-commons/2d';
-import {Color, createSignal, SignalValue, SimpleSignal} from "@canvas-commons/core";
+import {colorSignal, initial, Layout, LayoutProps, Rect, signal} from '@canvas-commons/2d';
+import {Color, ColorSignal, createSignal, PossibleColor, SignalValue, SimpleSignal} from "@canvas-commons/core";
 import {Controller} from './ColorPicker/Controller';
 
-export interface ObjectProperties extends LayoutProps {
+export interface ColorPickerProperties extends LayoutProps {
 
-    color?: SignalValue<Color>;
+    color?: SignalValue<PossibleColor>;
     previewHeight?: SignalValue<number>;
     radius?: SignalValue<number>;
 
@@ -13,22 +13,26 @@ export interface ObjectProperties extends LayoutProps {
 
 export class ColorPicker extends Layout {
 
-    public readonly color: SimpleSignal<Color, this>
-    public readonly previewHeight: SimpleSignal<number, this>
-    public readonly radius: SimpleSignal<number, this>
+    @initial('#000000')
+    @colorSignal()
+    public declare readonly color: ColorSignal<this>
 
-    public constructor(props: ObjectProperties) {
+    @initial(150)
+    @signal()
+    public declare readonly previewHeight: SimpleSignal<number, this>
+
+    @initial(10)
+    @signal()
+    public declare readonly radius: SimpleSignal<number, this>
+
+
+    public constructor(props: ColorPickerProperties) {
         super({
             ...props,
             layout: true,
             alignItems: 'center',
             direction: 'column',
         });
-
-
-        this.color = createSignal(props.color ?? new Color('#000000'));
-        this.previewHeight = createSignal(props.previewHeight ?? 150);
-        this.radius = createSignal(props.radius ?? 10);
 
 
         // The Preview
@@ -64,7 +68,12 @@ export class ColorPicker extends Layout {
                     padding={10}
                     gap={0}
                     fill={'#282828'}
-                    radius={() => this.radius()}
+                    radius={() => [
+                        0,
+                        0,
+                        this.radius(),
+                        this.radius()
+                    ]}
                     position={() => [0, this.previewHeight() / 2]}
 
                     shadowColor={'#212121'}

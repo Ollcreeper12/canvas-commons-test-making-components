@@ -1,10 +1,18 @@
 import {Rect, Txt, Icon, RectProps, Layout, LayoutProps} from '@canvas-commons/2d';
-import {Color, createRef, createSignal, SimpleSignal} from "@canvas-commons/core";
+import {
+    Color,
+    ColorSignal,
+    createRef,
+    createSignal,
+    PossibleColor,
+    SignalValue,
+    SimpleSignal
+} from "@canvas-commons/core";
 
 export interface ObjectProperties extends LayoutProps {
     text: string;
     fillText?: () => string;
-    color?: SimpleSignal<Color, any>;
+    color?: SignalValue<PossibleColor>;
     fillWidth?: () => number;
 }
 

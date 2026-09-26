@@ -10,7 +10,8 @@
   "dependencies": {
     "@canvas-commons/2d": "^0.3.1",
     "@canvas-commons/core": "^0.3.1",
-    "@canvas-commons/ffmpeg": "^0.3.1"
+    "@canvas-commons/ffmpeg": "^0.3.1",
+    "@lezer/python": "^1.1.19"
   },
   "devDependencies": {
     "@canvas-commons/editor": "^0.3.1",

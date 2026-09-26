@@ -45,7 +45,7 @@ export class NamedToggle extends Rect {
     public constructor(props?: NamedToggleProps) {
         super({
             ...props,
-            layout: true,
+            //layout: true,
             fill: () => this.bgColor(),
             padding: 20,
             radius: () => this.radiusRect(),
